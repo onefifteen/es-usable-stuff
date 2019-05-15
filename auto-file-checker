@@ -1,0 +1,20 @@
+init python:
+
+    tw_sfx = {} # библиотека для звуков и музыки (пример: play music tw_sfx['ringtone_tw'])
+    
+    ## автоматическое объявление всех bg, cg и sp
+    for i in renpy.list_files():
+        if i.startswith(("mods/twinkles/img/bg/", "mods/twinkles/img/cg/", "mods/twinkles/img/sp/", "mods/twinkles/img/ui/")) and i.endswith((".jpg", ".png")):
+            renpy.image((str(i)[21:-4]), i)
+
+    # тоже самое но со звуками
+    for i in renpy.list_files():
+        if i.startswith(("путь до папки со звуками/")) and i.endswith((".ogg", ".mp3")):
+            tw_sfx[i[20:-4]] = i
+        elif i.startswith((путь до папки со звуками2/")) and i.endswith((".ogg", ".mp3")):
+            tw_sfx[i[18:-4]] = i
+            
+            
+            # tw_sfx - название библиотеки (кастомное, в идеале уникальное для каждого мода)
+            # 20:-4 и 18:-4, где 20 и 18 это длина пути до файлов (в случае откуда был спизжен код - 20 и 18 соответственно)
+            # i - название функции(?), её название не важно
